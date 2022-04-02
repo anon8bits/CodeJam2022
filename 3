@@ -1,0 +1,31 @@
+import java.util.*;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        for(int i=1;i<=t;i++){
+          int N = sc.nextInt();
+          int[] arr = new int[N];
+          ArrayList<Integer> al = new ArrayList<Integer>();
+          for(int j=0;j<N;j++){
+              arr[j] = sc.nextInt();
+          }
+          Arrays.sort(arr);
+          for(int j=0;j<N;j++){
+              al.add(arr[j]);
+          }
+          int ctr=0;
+          for(int j=0;j<al.size();j++){
+              if(ctr<al.get(j)){
+                  ctr++;
+              } else if(ctr==al.get(j)){
+                  al.remove(j);
+                  j--;
+              } else
+                  break;
+          }
+            System.out.println("Case #" + i + ": " + ctr);
+        }
+    }
+}
